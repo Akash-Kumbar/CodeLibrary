@@ -36,6 +36,8 @@ int lonelyInteger(int arr[], int size)
     }
     if(temp == 0 && count0 == 1)
         ret = 0;
+    else if(temp == 0 && count0 != 1)
+        ret = -1;
     else
         ret = temp;
     return ret;
