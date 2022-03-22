@@ -43,7 +43,7 @@ class Solution
 int main()
 {
     Solution sol;
-    vector<vector<int>> out = sol.generate(25);
+    vector<vector<int>> out = sol.generate(25); //Number of rows to be printed is entered in the generate function
     for(auto vec : out)
     {
         for(auto x : vec)
