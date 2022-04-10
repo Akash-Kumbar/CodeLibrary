@@ -1,0 +1,46 @@
+ #include<iostream>
+
+using namespace std;
+const int p=6;
+const int q=6;
+
+//function for  counting path from source to destination
+int Count_Path_Using_DFS(int m[p][q],int source,int destination){
+    static int A[6]={0};
+    //static array for checking a particular node is visited or not
+
+    //for count a number of path
+    static int c=0;
+
+
+    A[source]=1;//marking of visited node
+
+    if(m[source][destination]==1){
+        c++;
+    }
+    else{
+
+    for(int j=1;j<p;++j){
+        if(A[j]==0 && m[source][j]==1){//for checking edge exist or not among v and j vertices's and checking node is visited or not
+            Count_Path_Using_DFS(m,j,destination);
+            //recursive call
+
+            A[j]=0;//this is slight modification from DFS Traversal
+        }
+    }
+    }
+
+    return c;
+
+
+}
+
+int main(){
+    //Adjacency Matrix representation of  a  above graph
+    int a[6][6]={{0,1,1,0,0,0},{0,0,1,1,0,0},{0,0,0,1,0,0},{0,0,0,0,1,0},{1,1,0,0,0,1},{0,0,0,0,0,0}};
+
+    //if path exit
+    cout<<"Total Number of Paths="<<" ";
+    cout<<Count_Path_Using_DFS(a,0,5)<<endl;
+    return 0;
+}
